@@ -1,13 +1,17 @@
 #! /bin/sh
-# appLariats generic tomcat build script
-# Requirements - A valid war file exists within the code_dir
-# Copies the war file from the code_dir and copies it into /usr/local/tomcat/webapps
+# appLariats generic Apache build script
+# Requirements - A valid httpd.conf file exists within the /src/conf/ dir
+# Copies the httpd.conf file from the /src/conf/ and copies it into /usr/local/apache2/conf/
 
-#TO DO - Add an if to check for file and throw error if not present
+#Log everything in /src/build.log
+logfile=/src/build.log
+exec > $logfile 2>&1
+set -x
 
-if [ -e $artifact_root/src/httpd.conf ]
+#Check for httpd.conf file and throw exception if not present
+if [ -e /src/config/httpd.conf ]
 then
-    cp -f $artifact_root/src/httpd.conf /usr/local/apache2/conf/httpd.conf
+    cp -f /src/config/httpd.conf /usr/local/apache2/conf/httpd.conf
 fi
 
-cp -f $artifact_root/src/ /usr/local/apache2/htdocs/
+cp -rf /src/* /usr/local/apache2/htdocs/
