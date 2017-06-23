@@ -1,6 +1,6 @@
-# Apache Image Builder
+# Apache Httpd Image Builder
 
-appLariat's generic image builder for Apache. This is the default build configuration for Apache images and is used by the appLariat Component Builder service
+appLariat's generic image builder for Apache Httpd. This is the default build configuration for Apache Httpd images and is used by the appLariat Component Builder service
 
 Default build workflow:
 
