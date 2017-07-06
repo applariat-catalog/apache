@@ -2,8 +2,8 @@
 # appLariats generic Apache build script
 
 
-#Log everything in /src/build.log
-logfile=/code/build.log
+#Log everything in /tmp/build.log
+logfile=/tmp/build.log
 exec > $logfile 2>&1
 set -x
 
@@ -23,3 +23,7 @@ else
 fi
 
 cp -rf /code/* /usr/local/apache2/htdocs/
+
+#Cleaning up after ourselves
+rm -rf /code
+rm -rf /conf
