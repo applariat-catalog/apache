@@ -13,18 +13,11 @@ if [ -e /code/apache-conf/httpd.conf ]
 then
  cp -f /code/apache-conf/httpd.conf /usr/local/apache2/conf/httpd.conf
 else
- #look inside /conf for httpd.conf and use it if exists
- #customizing Apache through cloning this github repo and providing conf/httpd.conf
- if [ -e /conf/httpd.conf ]
- then
-  cp -f /conf/httpd.conf /usr/local/apache2/conf/httpd.conf
- fi
- #if non of the above, default config file inside the image will be used
- echo "Could not find /code/apache-conf/httpd.conf, going to use the default nginx.conf "
+ echo "Could not find /code/apache-conf/httpd.conf, going to use the default httpd.conf "
 fi
 
 cp -rf /code/* /usr/local/apache2/htdocs/
 
 #Cleaning up after ourselves
 rm -rf /code
-rm -rf /conf
+#rm -rf /conf
